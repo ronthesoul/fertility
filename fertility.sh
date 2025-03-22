@@ -12,53 +12,44 @@ mkdir -p ./lib
 curl -o $library https://raw.githubusercontent.com/ronthesoul/negbook/main/negbook.sh
 source $library 
 
-
-function main(){
-
-project_name="my_app"
-project_path=/home/$USER/$project_name
-git_enabled=n
-
-read -p "What is the name of your project?" $project_name
-read -p "What directory would you like to place your project in?" $project_path
-read -p "Would you like to initilize a git repository? [Y/n]" $git_enabled 
-   
+main() {
+    read -p "What is the name of your project? " project_name
+    read -p "Where should the project be created? " project_path
+    read -p "Initialize Git repository? [Y/n] " git_enabled
+    full_path=$project_path/$project_name
+    if [[ -e $full_path ]]; then
+    mkdir -p "$full_path"
+    fi
+    cd "$full_path" || exit 1
 
 
+    build_folders_files 1 "$project_name"
 
+    if [[ "$git_enabled" == "Y" || "$git_enabled" == "y" ]]; then
+        git init
+        echo "Git repository initialized."
+    fi
 
-
-
+    echo "Project $project_name created at $project_path"
 }
 
+function build_folders_files() {
+    local format=$1
+    local project_name=$2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function build_folders_files(){
-local format=$1
-local project_name=$2
-case $format in
-    1)
-        mkdir -p ./src/{$project_name/app.py,lib/.placeholder,config/.placeholder} 
-        touch README.md .gitignore CONTRIBUTORS.md
-        ;;
-    *) 
-        echo "Format not found"
-        exit 1
-        ;;
+    case $format in
+        1)
+            mkdir -p "src" "lib" "config"
+            touch "src/app.py"
+            touch "lib/.placeholder"
+            touch "config/.placeholder"
+            touch "README.md" ".gitignore" "CONTRIBUTORS.md"
+            ;;
+        *)
+            echo "Format not found"
+            exit 1
+            ;;
+    esac
 }
 
-
-
+main
