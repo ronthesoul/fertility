@@ -7,7 +7,6 @@
 ## 📦 Features
 
 - Interactive CLI project creation
-- Project path resolution (supports `~`, relative, absolute)
 - Optional Git initialization
 - Optional SSH-based GitHub repository connection
 - Pipenv-based virtual environment setup (`.venv`)
