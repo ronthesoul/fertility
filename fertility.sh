@@ -3,7 +3,7 @@
 # Written by: Ron Negrov
 # Date: 3/21/2025
 # Purpose: A tool that is made to setup an labratory with a format. 
-# Version: 0.0.2
+# Version: 0.0.3
 ###########################
 
 
@@ -15,6 +15,9 @@ fi
 source "$library"
 
 main() {
+
+package_list=()
+
     read -p "What is the name of your project? " project_name
     read -p "Where should the project be created? " raw_path
     project_path=$(realpath -m "$(eval echo "$raw_path")")
@@ -31,9 +34,15 @@ main() {
         git init >/dev/null 2>&1
         echo "Git repository initialized."
     fi
-
     echo "Project $project_name created at $project_path"
+
+
+ ask_user_packages package_list
+ distro_check_and_install "${package_list[@]}"
+
+
 }
+
 
 function build_folders_files() {
     local format=$1
