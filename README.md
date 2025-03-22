@@ -6,12 +6,12 @@
 
 ## 📦 Features
 
-- Interactive project setup
-- Custom directory path resolution (supports `~`, relative, or absolute paths)
+- Interactive CLI project creation
+- Project path resolution (supports `~`, relative, absolute)
 - Optional Git initialization
-- Generates a clean project structure (`src/`, `lib/`, `config/`, etc.)
-- Interactive package installer (supports Debian, Fedora, Arch)
-
+- Optional SSH-based GitHub repository connection
+- Pipenv-based virtual environment setup (`.venv`)
+- Interactive package selection with distro-aware installation (Debian, Fedora, Arch)
 ---
 
 ## ⚙️ Installation
@@ -30,7 +30,9 @@ my-project/
 │   └── .placeholder
 ├── config/
 │   └── .placeholder
-├── README.md
 ├── .gitignore
 ├── CONTRIBUTORS.md
+├── README.md
+├── Pipfile
+└── .venv/
 ```
