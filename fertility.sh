@@ -23,7 +23,7 @@ package_list=()
     project_path=$(realpath -m "$(eval echo "$raw_path")")
     cd "$project_path" || { echo "Path does not exist"; exit 1; }
     read -p "Initialize Git repository? [Y/n] " git_enabled
-    read -p "Initialize a virtual environment? [Y/n] " venv_enable
+    read -p "Initialize a virtual environment? [Y/n] " venv_enabled
     full_path="$project_path/$project_name"
     if [[ ! -e $full_path ]]; then
     mkdir -p "$full_path"
