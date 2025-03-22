@@ -20,11 +20,9 @@ Use the following one-liner to install and set up the tool:
 
 ```bash
 mkdir -p ~/fertility && cd ~/fertility && curl -o fertility.sh https://raw.githubusercontent.com/ronthesoul/fertility/main/fertility.sh && chmod +x fertility.sh
-
+```
 📁 Example Project Structure
-arduino
-Copy
-Edit
+```
 my-project/
 ├── src/
 │   └── app.py
@@ -35,3 +33,4 @@ my-project/
 ├── README.md
 ├── .gitignore
 ├── CONTRIBUTORS.md
+```
