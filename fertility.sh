@@ -6,17 +6,6 @@
 # Version: 0.0.3
 ###########################
 
-
-library=./lib/negbook.sh
-mkdir -p ./lib
-if [[ ! -f "$library" ]]; then
-    curl -o "$library" https://raw.githubusercontent.com/ronthesoul/negbook/main/negbook.sh
-fi
-source "$library"
-
-main() {
-distro_check_and_install pipx pip python3
-package_list=()
 cat << 'EOF'
  _______  _______ .______     .___________. __   __       __  .___________.____    ____                                          
 |   ____||   ____||   _  \    |           ||  | |  |     |  | |           |\   \  /   /                                          
@@ -34,7 +23,16 @@ cat << 'EOF'
 
 EOF
 
+library=./lib/negbook.sh
+mkdir -p ./lib
+if [[ ! -f "$library" ]]; then
+    curl -o "$library" https://raw.githubusercontent.com/ronthesoul/negbook/main/negbook.sh
+fi
+source "$library"
 
+main() {
+distro_check_and_install pipx pip python3
+package_list=()
 
     read -p "What is the name of your project? " project_name
     read -p "Where should the project be created? " raw_path
