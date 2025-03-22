@@ -15,18 +15,17 @@ source $library
 main() {
     read -p "What is the name of your project? " project_name
     read -p "Where should the project be created? " project_path
+    cd "$project_path" || { echo "Path does not exist"; exit 1; }
     read -p "Initialize Git repository? [Y/n] " git_enabled
-    full_path=$project_path/$project_name
-    if [[ -e $full_path ]]; then
+    full_path="$project_path/$project_name"
+    if [[ ! -e $full_path ]]; then
     mkdir -p "$full_path"
     fi
-    cd "$full_path" || exit 1
-
-
+    cd "$full_path" || { echo "Error in creating root project folder"; exit 1; }
     build_folders_files 1 "$project_name"
 
     if [[ "$git_enabled" == "Y" || "$git_enabled" == "y" ]]; then
-        git init
+        git init >/dev/null 2>&1
         echo "Git repository initialized."
     fi
 
