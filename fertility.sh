@@ -17,7 +17,7 @@ source "$library"
 main() {
     read -p "What is the name of your project? " project_name
     read -p "Where should the project be created? " raw_path
-    project_path=$(realpath -m "$raw_path")
+    project_path=$(realpath -m "$(eval echo "$raw_path")")
     cd "$project_path" || { echo "Path does not exist"; exit 1; }
     read -p "Initialize Git repository? [Y/n] " git_enabled
     full_path="$project_path/$project_name"
