@@ -36,3 +36,12 @@ my-project/
 ├── Pipfile
 └── .venv/
 ```
+---
+## 🔧 Prerequisites
+-  **Shell**: Bash (must be installed)
+-  **Python3**: Must use python3
+-  **Git** Must have git
+---
+
+## 👤 Author
+Created by [ronthesoul](https://github.com/ronthesoul).
