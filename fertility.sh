@@ -15,7 +15,7 @@ fi
 source "$library"
 
 main() {
-
+distro_check_and_install pipx pip python3
 package_list=()
 
     read -p "What is the name of your project? " project_name
@@ -40,9 +40,9 @@ package_list=()
  ask_user_packages package_list
  distro_check_and_install "${package_list[@]}"
 
+ venv_init "$full_path"
 
 }
-
 
 function build_folders_files() {
     local format=$1
