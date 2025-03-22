@@ -3,18 +3,21 @@
 # Written by: Ron Negrov
 # Date: 3/21/2025
 # Purpose: A tool that is made to setup an labratory with a format. 
-# Version: 0.0.1
+# Version: 0.0.2
 ###########################
 
 
 library=./lib/negbook.sh
 mkdir -p ./lib
-curl -o $library https://raw.githubusercontent.com/ronthesoul/negbook/main/negbook.sh
-source $library 
+if [[ ! -f "$library" ]]; then
+    curl -o "$library" https://raw.githubusercontent.com/ronthesoul/negbook/main/negbook.sh
+fi
+source "$library"
 
 main() {
     read -p "What is the name of your project? " project_name
-    read -p "Where should the project be created? " project_path
+    read -p "Where should the project be created? " raw_path
+    project_path=$(realpath -m "$raw_path")
     cd "$project_path" || { echo "Path does not exist"; exit 1; }
     read -p "Initialize Git repository? [Y/n] " git_enabled
     full_path="$project_path/$project_name"
