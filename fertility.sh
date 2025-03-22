@@ -62,8 +62,8 @@ function build_folders_files() {
 
     case $format in
         1)
-            mkdir -p "src" "lib" "config"
-            touch "src/app.py"
+            mkdir -p "src/$project_name" "lib" "config"
+            touch "src/$project_name/app.py"
             touch "lib/.placeholder"
             touch "config/.placeholder"
             touch "README.md" ".gitignore" "CONTRIBUTORS.md"
