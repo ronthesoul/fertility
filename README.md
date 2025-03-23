@@ -1,6 +1,6 @@
-# Fertility
+#🧪 Fertility
 
-🧪 **Fertility** is a lightweight Bash-based project scaffolding tool designed to help you set up a clean, structured, and optionally Git-initialized workspace for your next script or application.
+**Fertility** is a lightweight Bash-based project scaffolding tool designed to help you set up a clean, structured, and optionally Git-initialized workspace for your next script or application.
 
 ---
 
