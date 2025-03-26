@@ -33,6 +33,7 @@ source "$library"
 main() {
 distro_check_and_install pipx pip python3
 package_list=()
+project_dir="$(pwd)"
 
     read -p "What is the name of your project? " project_name
     read -p "Where should the project be created? " raw_path
@@ -69,16 +70,16 @@ package_list=()
 if [[ "$venv_enabled" == "Y" || "$venv_enabled" == "y" ]]; then
  venv_init "$full_path"
  fi
-
+cd $project_dir
+ rm -rf "./lib"
 }
-
 function build_folders_files() {
     local format=$1
     local project_name=$2
 
     case $format in
         1)
-            mkdir -p "src/$project_name" "lib" "config"
+            mkdir -p "src/$project_name/static" "lib" "config" "src/$project_name/templates"
             touch "src/$project_name/app.py"
             touch "lib/.placeholder"
             touch "config/.placeholder"
@@ -92,3 +93,4 @@ function build_folders_files() {
 }
 
 main
+rm -rf "$library"
