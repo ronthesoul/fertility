@@ -79,6 +79,7 @@ fi
 
 cd $project_dir
  rm -rf "./lib"
+cd $full_path
 }
 function build_folders_files() {
     local format=$1
