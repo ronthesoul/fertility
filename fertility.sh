@@ -41,7 +41,7 @@ project_dir="$(pwd)"
     cd "$project_path" || { echo "Path does not exist"; exit 1; }
     read -p "Initialize Git repository? [Y/n] " git_enabled
     read -p "Initialize a virtual environment? [Y/n] " venv_enabled
-    read -p "Download a Coming Soon template and integrate it into the project? [Y/n]" template_enabled
+    read -p "Download a Coming Soon template and integrate it into the project? [Y/n] " template_enabled
     full_path="$project_path/$project_name"
     if [[ ! -e $full_path ]]; then
     mkdir -p "$full_path"
@@ -73,7 +73,7 @@ if [[ "$venv_enabled" == "Y" || "$venv_enabled" == "y" ]]; then
  fi
 
 if [[ "$template_enabled" == "Y" || "$template_enabled" == "y" ]]; then
-download_template "$project_dir" "$project_name"
+download_template "$full_path" "$project_name"
 fi
 
 
