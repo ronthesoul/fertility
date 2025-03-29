@@ -9,8 +9,9 @@
 - Interactive CLI project creation
 - Optional Git initialization
 - Optional SSH-based GitHub repository connection
-- Pipenv-based virtual environment setup (`.venv`)
+- Pipenv-based virtual environment setup (`.venv`) and install pip packages
 - Interactive package selection with distro-aware installation (Debian, Fedora, Arch)
+- Gives an option to download a coming soon template. 
 ---
 
 ## ⚙️ Installation
@@ -22,18 +23,29 @@ mkdir -p ~/fertility && cd ~/fertility && curl -o fertility.sh https://raw.githu
 ```
 📁 Example Project Structure
 ```
-my-project/
-├── src/
-│   └── app.py
-├── lib/
-│   └── .placeholder
-├── config/
-│   └── .placeholder
-├── .gitignore
+my_project/
+├── config
 ├── CONTRIBUTORS.md
-├── README.md
+├── lib
 ├── Pipfile
-└── .venv/
+├── Pipfile.lock
+├── README.md
+└── src
+    └── my_project
+        ├── app.py
+        ├── static
+        │   ├── assets
+        │   │   ├── favicon.ico
+        │   │   ├── img
+        │   │   │   └── bg-mobile-fallback.jpg
+        │   │   └── mp4
+        │   │       └── bg.mp4
+        │   ├── css
+        │   │   └── styles.css
+        │   └── js
+        │       └── scripts.js
+        └── templates
+            └── index.html
 ```
 ---
 ## 🔧 Prerequisites
