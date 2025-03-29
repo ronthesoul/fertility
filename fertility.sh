@@ -3,7 +3,7 @@
 # Written by: Ron Negrov
 # Date: 3/21/2025
 # Purpose: A tool that is made to setup an labratory with a format. 
-# Version: 0.0.3
+# Version: 0.0.5
 ###########################
 
 cat << 'EOF'
