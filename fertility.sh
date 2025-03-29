@@ -31,7 +31,7 @@ fi
 source "$library"
 
 main() {
-distro_check_and_install pipx pip python3
+distro_check_and_install pipx pip python3 unzip gunicorn
 package_list=()
 project_dir="$(pwd)"
 
