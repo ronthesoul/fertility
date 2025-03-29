@@ -64,12 +64,12 @@ project_dir="$(pwd)"
     fi
     echo "Project $project_name created at $project_path"
 
-
  ask_user_packages package_list
  distro_check_and_install "${package_list[@]}"
 
 if [[ "$venv_enabled" == "Y" || "$venv_enabled" == "y" ]]; then
  venv_init "$full_path"
+ pipenv_download flask gunicorn
  fi
 
 if [[ "$template_enabled" == "Y" || "$template_enabled" == "y" ]]; then
